@@ -1,0 +1,14 @@
+<!--comments EDIT-->
+
+<% include ../partials/header %>
+<div class="container">
+    <div class="row">
+        <h1 style="text-align:center;">edit</h1>
+        <form class="designed_form" action="/blogs/<%=commentId%>/comments/<%=comment._id%>?_method=PUT" method="POST">
+            <input class="form-group form-control" type="text" name="textUpdated" value="<%=comment.text%>"></input>
+            <button class="form-group btn btn-primary btn-default btn-block">submit!</button>
+                <a href="/blogs">back to blog posts</a>
+        </form>
+    </div>
+</div>
+<% include ../partials/footer %>

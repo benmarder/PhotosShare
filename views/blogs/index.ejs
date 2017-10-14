@@ -1,0 +1,32 @@
+<!--blogs index page-->
+
+<%include ../partials/header %>
+
+<div class="container">
+    <header class="jumbotron">
+        <div class="container">
+            <h1>Blogs</h1>
+            <p>view our photos from all over the world</p>
+            <p>
+                 <a class="btn btn-primary btn-large" href="/blogs/new">Add new post!</a>
+            </p>
+        </div>
+    </header>
+    
+    <div class="row text-center" style="display:flex; flex-wrap:wrap;">
+         <% posts.forEach(function(post){ %>
+              <div class="col-md-3 col-sm-6">
+                  <div class="thumbnail">
+                    <img src= "<%= post.image %>" </img>
+                    <div class="caption">
+                      <h4> <%= post.name %> </h4>    
+                    </div>
+                    <p>
+                        <a class="btn btn-primary" href="/blogs/<%=post._id %>" >more info</a>
+                    </p>
+                  </div>
+              </div>
+         <% }); %>
+    </div>
+  </div> 
+<%include ../partials/footer %>

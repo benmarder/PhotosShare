@@ -1,0 +1,64 @@
+<!--blog SHOW-->
+
+<% include ../partials/header %>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <p class="lead">more from <%=post.author.username%></p>
+            <div class="list-group">
+                <li class="list-group-item active">dummy post 1</li>
+                <li class="list-group-item">dummy post 2</li>
+                <li class="list-group-item">dummy post 3</li>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="thumbnail">
+                <img class="img-responsive" src="<%=post.image%>"></img>
+                <div class="caption-full">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=example.org">
+                        <img src="/images/facebook.png"class="pull-right"id="facebookIcon"title="Share">
+                    </a>
+                    <h4><a><%= post.name %></a></h4>
+                    <p><%= post.description %></p>
+                    <p><em>submited by: <b><%= post.author.username%></b></em></p>
+                    <%if(currUser !== undefined && post.author.id.equals(currUser._id)){%>
+                        <a class="btn btn-warning"href="/blogs/<%=post._id%>/edit">EDIT</a>
+                        <form class="deleteForm"action="/blogs/<%=post._id%>?_method=DELETE" method="POST">
+                            <button class="btn btn-danger">DELETE</button>
+                        </form>
+                    <% }%>  
+                </div>
+            </div>
+            <div class="well">
+                <div class="text-right">
+                    <a class="btn btn-success" href="/blogs/<%=post._id%>/comments/new">Add new comment</a>
+                </div>
+                <hr></hr>
+                <% post.comments.forEach(function(comment){ %>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <strong><%=comment.author.username%></strong>
+                            <span class="pull-right">
+                                <%=post.time.getDate()%>.
+                                <%=post.time.getMonth()%>.
+                                <%=post.time.getFullYear()%>
+                            </span>
+                            <p><%=comment.text%></p> 
+                            <%if(currUser&&comment.author.id.equals(currUser._id)){%>
+                                <a class="pull-right btn btn-warning"
+                                   href="/blogs/<%=post._id%>/comments/<%=comment._id%>/edit">
+                                  EDIT
+                                </a>
+                                <form class="pull-right deleteForm"action="/blogs/<%=post._id%>/comments/<%=comment._id%>?_method=DELETE" method="POST">
+                                    <button class="btn btn-danger">DELETE</button>
+                                </form>
+                            <% }%>
+                        </div> 
+                    </div>
+                <% });%>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% include ../partials/footer %>

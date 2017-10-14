@@ -1,0 +1,16 @@
+<!--blog NEW-->
+
+<% include ../partials/header %>
+<div class="container">
+    <div class="row">
+        <h1 style="text-align:center;">create a new blog post</h1>
+        <form class="designed_form" action="/blogs" method="POST">
+            <input class="form-group form-control" type="text" name="name" placeholder="name"></input>
+            <input class="form-group form-control" type="text" name="image" placeholder="image url"></input>
+            <input class="form-group form-control" type="text" name="description" placeholder="description"></input>
+            <button class="form-group btn btn-primary btn-default btn-block">submit!</button>
+            <a href="/blogs">back to blog posts</a>
+        </form>
+    </div>
+</div>
+<% include ../partials/footer %>

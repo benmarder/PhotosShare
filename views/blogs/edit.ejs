@@ -1,0 +1,15 @@
+<!--blogs EDIT-->
+<% include ../partials/header %>
+<div class="container">
+    <div class="row">
+        <h1 style="text-align:center;">Edit <%=post.name%></h1>
+        <form class="designed_form" action="/blogs/<%=post._id%>?_method=PUT" method="POST">
+            <input class="form-group form-control" type="text" name="post[name]" value="<%=post.name%>"></input>
+            <input class="form-group form-control" type="text" name="post[image]" value="<%=post.image%>"></input>
+            <input class="form-group form-control" type="text" name="post[description]" value="<%=post.description%>"></input>
+            <button class="form-group btn btn-primary btn-default btn-block">submit!</button>
+                <a href="/blogs">back to photos blog</a>
+        </form>
+    </div>
+</div>
+<% include ../partials/footer %>

@@ -1,0 +1,14 @@
+<!--comments NEW-->
+
+<% include ../partials/header %>
+<div class="container">
+    <div class="row">
+        <h1 style="text-align:center;">add new comment to <%=post.name%></h1>
+        <form class="designed_form" action="/blogs/<%=post._id%>/comments" method="POST">
+            <input class="form-group form-control" type="text" name="comment[text]" placeholder="text"></input>
+            <button class="form-group btn btn-primary btn-default btn-block">submit!</button>
+                <a href="/blogs">back to blog posts</a>
+        </form>
+    </div>
+</div>
+<% include ../partials/footer %>
