@@ -45,6 +45,6 @@ app.use(indexRouts);
 app.use("/blogs",blogRouts);
 app.use("/blogs/:id/comments",commentRouts);
 
-app.listen(process.env.PORT,process.env.IP,function(){
-    console.log("server has started");
+app.listen(3001,process.env.IP,function(){
+    console.log("server has started at port 3001");
 });
